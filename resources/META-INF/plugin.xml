@@ -15,7 +15,7 @@
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="145.0"/>
+  <idea-version since-build="171.0"/>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
@@ -25,10 +25,19 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+      <extension id="com.intellij.javaee" />
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
+      <group id="MybatisGenerator.SampleMenu" text="_Sample Menu" description="Sample Menu">
+          <add-to-group group-id="MainMenu" anchor="last"  />
+          <action id="Myplugin.Textboxes" class="com.codestd.plugin.mybatis.generator.actions.TextBoxes" text="Text _Boxes" description="A test menu item" />
+      </group>
+    <action id="GenerateFromDatabase" class="com.codestd.plugin.mybatis.generator.actions.MapperGeneratorAction"
+            text="_Generate From Database...">
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="last" />
+    </action>
   </actions>
 
 </idea-plugin>
